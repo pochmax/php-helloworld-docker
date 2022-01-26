@@ -8,14 +8,14 @@ services:
     build: .
     ports:
       - "8080:80"
-    networks:
-        - web
-    labels:
-        - "traefik.enable=true"
-        - "traefik.http.routers.${NAME}.rule=Host(`${NAME}.jrcandev.netlib.re`)"
-        - "traefik.http.routers.${NAME}.entrypoints=websecure"
-        - "traefik.http.routers.${NAME}.tls.certresolver=lets-encrypt"
-    restart: always
+    # networks:
+    #     - web
+    # labels:
+    #     - "traefik.enable=true"
+    #     - "traefik.http.routers.${NAME}.rule=Host(`${NAME}.jrcandev.netlib.re`)"
+    #     - "traefik.http.routers.${NAME}.entrypoints=websecure"
+    #     - "traefik.http.routers.${NAME}.tls.certresolver=lets-encrypt"
+    # restart: always
 
 volumes:
   content:
