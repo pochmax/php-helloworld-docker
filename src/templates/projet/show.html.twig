@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Projet
+{% endblock %}
+
+{% block body %}
+	<div class="projet" data-aos="zoom-in">
+		<img src="{{asset('ressources/'~ projet.photo )}}" alt="">
+		<h2>{{ projet.titre }}</h2>
+		<p>{{ projet.description }}</p>
+		{% if is_granted('ROLE_ADMIN') %}
+			<a href="{{ path('projet_edit', {'id': projet.id}) }}">edit</a>
+		{% endif %}
+    </div>
+
+	<a href="{{ path('projet_index') }}">back to list</a>
+	{% if is_granted('ROLE_ADMIN') %}
+		<a href="{{ path('projet_edit', {'id': projet.id}) }}">edit</a>
+		{{ include('projet/_delete_form.html.twig') }}
+	{% endif %}
+{% endblock %}
